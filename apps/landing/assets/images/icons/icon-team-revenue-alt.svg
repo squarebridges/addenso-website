@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Icons_BarGraphUpwardTrend_LTR_M"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 400 400"
+	 style="enable-background:new 0 0 400 400;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#1B75AD;}
+	.st1{fill:#FFFFFF;stroke:#FFFFFF;stroke-width:2.692;}
+</style>
+<circle class="st0" cx="200" cy="200" r="197.6"/>
+<g id="Icons">
+	<path class="st1" d="M322.9,316.7H84.3V78H77v246h245.8L322.9,316.7L322.9,316.7z"/>
+	<path class="st1" d="M323,78h-57.9v217.1H323V78z M315.7,287.8h-43.4V85.3h43.4V287.8z"/>
+	<path class="st1" d="M185.5,295.1h57.9V157.6h-57.9L185.5,295.1L185.5,295.1z M192.7,164.8h43.4v123h-43.4V164.8z"/>
+	<path class="st1" d="M105.9,295.1h57.9v-72.4h-57.9V295.1z M113.2,229.9h43.4v57.9h-43.4V229.9z"/>
+	<path class="st1" d="M108.5,196.3L214.4,90.4c0,0,0,0,0.1,0l0,0V125h7.3V78h-47v7.3h34.5l0,0l0,0L103.4,191.2L108.5,196.3z"/>
+</g>
+</svg>

@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/open-sans-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/open-sans-600.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/open-sans-700.ttf") format("truetype");
+}
+
+:root {
+  --color-brand: #1174af;
+  --color-heading: #0f79b6;
+  --color-text: #18212f;
+  --color-copy: #242442;
+  --color-surface: #f1f1f1;
+  --color-green: #31d74c;
+  --color-footer: #22223f;
+  --font-family-primary: "Open Sans", Arial, sans-serif;
+  --container-max-width: 1160px;
+  --header-height: 127px;
+}
