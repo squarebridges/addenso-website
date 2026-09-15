@@ -11,10 +11,13 @@
     "check": "node scripts/check.mjs",
     "test": "playwright test",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "diff": "node scripts/visual-diff.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.58.2",
+    "pixelmatch": "7.1.0",
+    "pngjs": "7.0.0",
     "prettier": "3.8.1"
   }
 }

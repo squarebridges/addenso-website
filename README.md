@@ -35,10 +35,28 @@ pnpm build      # copy apps/landing to dist/
 pnpm preview    # serve dist/
 pnpm check      # verify every local href/src/url() resolves on disk
 pnpm test       # Playwright, starts the dev server itself
+pnpm diff       # pixel-diff each section against the live addenso.com
 pnpm format     # prettier --write .
 ```
 
 `pnpm test` needs browsers once: `pnpm exec playwright install chromium`.
+
+## Comparing against the live site
+
+`pnpm diff` (dev server must be running) loads this replica and addenso.com side by
+side at desktop and mobile widths, pins each section to a shared text landmark, and
+writes per-section diff images plus `visual-diff/report.json`.
+
+Read the percentages as a change detector, not a fidelity score. They count differing
+pixels, so anti-aliased text edges and a one-pixel offset light up every glyph: a
+section that looks identical still reports a few percent. When a number moves, open the
+diff image and then measure the elements directly — `getBoundingClientRect` on both
+sides is what actually tells you whether the layout drifted.
+
+Two things in the harness exist because they burned us: the live theme swaps in an
+animated fixed header clone on scroll (capture it mid-animation and the whole page
+appears shifted), and the live page ships hidden mobile duplicates of every section
+(match one by accident and you measure a zero-size element).
 
 ## Notes
 
@@ -48,3 +66,9 @@ pnpm format     # prettier --write .
 - Contact routes are mailto/tel links, matching the original — there is no form and no
   backend.
 - The copyright line still reads 2022, as the live site does.
+- Desktop layout is measured against the live site and tracks it within ~4px through
+  the main content. Mobile has had one pass (container gutter) and is less verified —
+  its total document height is still ~9% shorter than the original's.
+- Not reproduced: the original's scroll-triggered fade-in animations, its cookie
+  consent banner, and its MasterSlider industry carousel (replaced with a native
+  scroll-snap row).
