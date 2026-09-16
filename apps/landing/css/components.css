@@ -274,28 +274,34 @@
 
   .section-intro {
     font-size: 16px;
-    line-height: 28px;
+    line-height: 30px;
   }
 
   .team-card {
-    min-height: 212px;
+    min-height: 209px;
   }
 
   .team-card h3 {
     font-size: 16px;
+    line-height: 28px;
   }
 
   .service-card {
-    height: 300px;
+    height: 290px;
   }
 
   .service-title {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 30px;
   }
 
   .service-back {
     font-size: 15px;
-    line-height: 23px;
+    line-height: 28px;
+  }
+
+  .service-back strong {
+    font-size: 18px;
   }
 
   .industry-slide {
@@ -304,22 +310,25 @@
 
   .case-card {
     display: block;
-    padding: 40px 20px;
-    font-size: 16px;
+    padding: 50px 20px 20px;
+    font-size: 20px;
     line-height: 28px;
   }
 
   .case-card h3 {
-    margin-bottom: 36px;
+    margin-bottom: 40px;
   }
 
   .case-card h3,
   .case-card dt {
-    font-size: 24px;
-    line-height: 26px;
+    line-height: 28px;
+  }
+
+  .case-card dt {
+    margin-bottom: 10px;
   }
 
   .case-card dl > div + div {
-    margin-top: 28px;
+    margin-top: 30px;
   }
 }

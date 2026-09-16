@@ -404,25 +404,21 @@
   }
 
   .hero h1 {
+    margin-bottom: 30px;
     font-size: 27px;
     line-height: 29.7px;
   }
 
   .hero-tagline {
-    max-width: 270px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     font-size: 18px;
+    font-weight: 600;
     line-height: 19.8px;
-  }
-
-  .hero-description {
-    max-width: 300px;
   }
 
   .hero .button {
     margin-top: 30px;
-    padding-inline: 25px;
-    font-size: 11px;
+    padding: 14px 29px;
   }
 
   .hero-media {
@@ -437,62 +433,78 @@
   }
 
   .team-grid {
-    margin-top: 60px;
-    gap: 20px;
-  }
-
-  .team {
-    padding-bottom: 80px;
+    margin-top: 58px;
+    gap: 16px;
   }
 
   .services .section-intro {
-    line-height: 28px;
+    line-height: 30px;
   }
 
   .services-grid {
-    gap: 80px;
+    margin-top: 50px;
+    gap: 83px;
+  }
+
+  /* The live page pads each mobile service card with ~38px of slack below the
+     art before the next one, which lands as extra space under the last card. */
+  .services {
+    padding-bottom: 203px;
   }
 
   .statistics-subtitle {
     font-size: 16px;
-    line-height: 28px;
+    line-height: 30px;
   }
 
   .statistics-copy ul {
     font-size: 16px;
-    line-height: 28px;
+    line-height: 30px;
     padding-left: 20px;
   }
 
   .statistics-source {
-    font-size: 12px;
-    line-height: 18px;
+    margin-top: 15px;
+    line-height: 22px;
+  }
+
+  /* The live carousel shows two 130px slides inset 10px inside the container. */
+  .industry-carousel {
+    margin-top: 63px;
+    padding: 0 10px 10px;
   }
 
   .case-studies {
     padding-top: 118px;
-    padding-bottom: 90px;
+    padding-bottom: 110px;
   }
 
   .case-grid {
-    gap: 30px;
+    margin-top: 50px;
+    gap: 20px;
   }
 
   .contact-banner p {
     font-size: 24px;
-    line-height: 32px;
+    line-height: 38px;
   }
 
-  .footer-grid {
-    gap: 50px;
+  .contact-banner .button {
+    min-height: 54px;
+    font-size: 15px;
   }
 
   .footer-main {
-    font-size: 14px;
-    line-height: 26px;
+    padding-bottom: 130px;
+  }
+
+  .footer-grid {
+    gap: 60px;
   }
 
   .copyright {
-    font-size: 12px;
+    padding: 32px 76px;
+    font-size: 15px;
+    line-height: 30px;
   }
 }

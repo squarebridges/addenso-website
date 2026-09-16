@@ -46,6 +46,7 @@ const outDir = (() => {
 async function settle(page) {
   await page.addStyleTag({
     content:
+      "html { scroll-behavior: auto !important; } " +
       ".be-gdpr-popup, .be-gdpr-modal, .mfp-bg, .mfp-wrap { display: none !important; }",
   });
 
