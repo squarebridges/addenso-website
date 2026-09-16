@@ -21,9 +21,9 @@ test("renders every section of the page in order", async ({ page }) => {
   ]);
 });
 
-test("has the counts the original site has", async ({ page }) => {
+test("has the expected card counts", async ({ page }) => {
   await expect(page.locator(".team-card")).toHaveCount(6);
-  await expect(page.locator(".service-card")).toHaveCount(3);
+  await expect(page.locator(".service-card")).toHaveCount(4);
   await expect(page.locator(".industry-slide")).toHaveCount(18);
   await expect(page.locator(".case-card")).toHaveCount(3);
 });

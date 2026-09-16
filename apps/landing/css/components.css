@@ -96,7 +96,7 @@
 .service-card {
   position: relative;
   width: 100%;
-  height: 341px;
+  height: auto;
   padding: 0;
   border: 0;
   border-bottom: 3px solid #049bd4;
@@ -147,6 +147,8 @@
 }
 
 .service-back {
+  position: relative;
+  min-height: 338px;
   flex-direction: column;
   gap: 16px;
   padding: 20px;
@@ -286,16 +288,13 @@
     line-height: 28px;
   }
 
-  .service-card {
-    height: 290px;
-  }
-
   .service-title {
     font-size: 18px;
     line-height: 30px;
   }
 
   .service-back {
+    min-height: 287px;
     font-size: 15px;
     line-height: 28px;
   }

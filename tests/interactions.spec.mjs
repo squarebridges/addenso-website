@@ -1,21 +1,66 @@
 import { test, expect } from "@playwright/test";
 
+for (const [label, url] of [
+  ["HTTP", "/"],
+  ["local file", new URL("../apps/landing/index.html", import.meta.url).href],
+]) {
+  test(`${label}: all service cards toggle on click or tap and stay open until activated again`, async ({
+    page,
+    isMobile,
+  }) => {
+    const errors = [];
+    page.on("pageerror", (error) => errors.push(error.message));
+    page.on("console", (message) => {
+      if (message.type() === "error") errors.push(message.text());
+    });
+    await page.goto(url);
+
+    for (const card of await page.locator(".service-card").all()) {
+      await expect(card).toHaveAttribute("aria-expanded", "false");
+      if (isMobile) await card.tap();
+      else await card.click();
+      await expect(card).toHaveAttribute("aria-expanded", "true");
+      await expect(card.locator(".service-card-inner")).toHaveCSS(
+        "transform",
+        /^matrix3d\(-1,/,
+      );
+
+      await page.mouse.move(0, 0);
+      await expect(card).toHaveAttribute("aria-expanded", "true");
+
+      if (isMobile) await card.tap();
+      else await card.click();
+      await expect(card).toHaveAttribute("aria-expanded", "false");
+      await expect(card.locator(".service-card-inner")).toHaveCSS(
+        "transform",
+        "none",
+      );
+    }
+    expect(errors).toEqual([]);
+  });
+}
+
 test.describe("desktop interactions", () => {
   test.skip(({ isMobile }) => isMobile, "covered by the mobile suite instead");
 
-  test("service cards flip to their detail copy", async ({ page }) => {
+  test("service cards toggle with Enter and Space without opening on hover or focus", async ({
+    page,
+  }) => {
     await page.goto("/");
 
     const card = page.locator(".service-card").first();
     await expect(card).toHaveAttribute("aria-expanded", "false");
 
     await card.hover();
-    await expect(card).toHaveAttribute("aria-expanded", "true");
-    await expect(card.locator(".service-back")).toContainText(
-      "Anonymize, aggregate, and fuse",
-    );
+    await expect(card).toHaveAttribute("aria-expanded", "false");
 
-    await page.mouse.move(0, 0);
+    await card.focus();
+    await expect(card).toHaveAttribute("aria-expanded", "false");
+
+    await page.keyboard.press("Enter");
+    await expect(card).toHaveAttribute("aria-expanded", "true");
+
+    await page.keyboard.press("Space");
     await expect(card).toHaveAttribute("aria-expanded", "false");
   });
 

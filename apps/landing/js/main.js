@@ -37,12 +37,11 @@ function initMobileNav() {
 
 /**
  * Service cards flip to reveal their detail copy. They're buttons, so the
- * flip is driven by aria-expanded and works from the keyboard too. Pointer
- * users get the flip on hover as well, which matches the original site.
+ * flip is driven by aria-expanded and works with clicks, taps, and native
+ * keyboard activation. Hover and focus leave the current face unchanged.
  */
 function initServiceCards() {
   const cards = document.querySelectorAll(".service-card");
-  const canHover = window.matchMedia("(hover: hover)").matches;
 
   cards.forEach((card) => {
     const setFlipped = (flipped) =>
@@ -51,13 +50,6 @@ function initServiceCards() {
     card.addEventListener("click", () => {
       setFlipped(card.getAttribute("aria-expanded") !== "true");
     });
-
-    if (canHover) {
-      card.addEventListener("mouseenter", () => setFlipped(true));
-      card.addEventListener("mouseleave", () => setFlipped(false));
-      card.addEventListener("focus", () => setFlipped(true));
-      card.addEventListener("blur", () => setFlipped(false));
-    }
   });
 }
 
