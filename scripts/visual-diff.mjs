@@ -1,6 +1,7 @@
 // Compare this replica against the live addenso.com, section by section.
 //
 //   node scripts/visual-diff.mjs [--out <dir>]
+//   REPLICA_URL=https://... node scripts/visual-diff.mjs   (compare a deployed copy)
 //
 // Each section is captured with its top pinned to a fixed viewport offset, so
 // both sides produce identically sized images anchored at the same content.
@@ -13,7 +14,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 const LIVE = "https://addenso.com/";
-const LOCAL = "http://localhost:4173/";
+const LOCAL = process.env.REPLICA_URL ?? "http://localhost:4173/";
 
 // Anchored on a text landmark both sites share, not on element boundaries:
 // the two DOMs wrap their sections differently, so matching on structure
