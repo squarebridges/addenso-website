@@ -41,6 +41,11 @@ pnpm format     # prettier --write .
 
 `pnpm test` needs browsers once: `pnpm exec playwright install chromium`.
 
+## Deploying
+
+Pushes to `main` publish `dist/` to GitHub Pages via `.github/workflows/pages.yml`.
+Nothing to do by hand; the Actions run takes about a minute.
+
 ## Comparing against the live site
 
 `pnpm diff` (dev server must be running) loads this replica and addenso.com side by
