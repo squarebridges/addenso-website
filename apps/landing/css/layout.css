@@ -202,7 +202,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-  margin-top: 12px;
+  margin-top: 54px;
 }
 
 .contact-banner {
@@ -374,6 +374,12 @@
 @media (max-width: 767px) {
   :root {
     --header-height: 126px;
+  }
+
+  /* The live theme's header scrolls away on phones; keep it positioned so
+     the absolutely placed nav dropdown still hangs off it. */
+  .site-header {
+    position: relative;
   }
 
   body {
