@@ -8,35 +8,61 @@ The original is a WordPress site (Oshin theme + Tatsu page builder). This repo r
 the rendered page, not the WordPress installation — the markup here is written from
 scratch and the assets were downloaded from the live site.
 
+Alongside the replica, `apps/design-a`, `apps/design-b`, and `apps/design-c` are three
+complete redesign concepts (same updated copy, different direction) for the Addenso team
+to choose between, with `apps/designs` as a small index page linking them. See
+"Multiple apps" below for how they are served and deployed.
+
 ## Layout
 
 ```
-apps/landing/
-  index.html            the whole site; every nav item is an anchor into this page
-  css/
-    main.css            entry point, @imports the rest in cascade order
-    variables.css       design tokens (brand colors, font stack, container width)
-    reset.css           normalize + base typography
-    components.css      buttons, cards, carousel, section headings
-    layout.css          page sections, grids, and the responsive breakpoints
-  js/main.js            mobile nav, service-card flip, industry carousel, back-to-top
-  assets/               images, icons, fonts, and the hero video
-docs/asset-sources.json where each downloaded asset came from
-scripts/                dev server, build, and a link checker
+apps/
+  landing/              the replica of the current site; served at /
+    index.html          the whole site; every nav item is an anchor into this page
+    css/
+      main.css          entry point, @imports the rest in cascade order
+      variables.css     design tokens (brand colors, font stack, container width)
+      reset.css         normalize + base typography
+      components.css    buttons, cards, carousel, section headings
+      layout.css        page sections, grids, and the responsive breakpoints
+    js/main.js          mobile nav, service-card flip, industry carousel, back-to-top
+    assets/             images, icons, fonts, and the hero video (shared by every app)
+  design-a/             redesign concept: editorial consulting; served at /design-a/
+  design-b/             redesign concept: dark technical; served at /design-b/
+  design-c/             redesign concept: evidence-first, human; served at /design-c/
+    index.html, css/design.css, js/main.js, assets/fonts/   (same shape for each)
+  designs/index.html    index page linking the concepts; served at /designs/
+docs/asset-sources.json where each downloaded asset and font came from
+scripts/                dev server, build, link checker, screenshots, visual diff
 tests/                  Playwright specs (desktop + mobile projects)
 ```
+
+## Multiple apps
+
+`apps/` is a mount table: `apps/landing` is the site root and every other
+`apps/<name>` is served at `/<name>/`. `scripts/apps.mjs` holds that rule and the build,
+dev server, and link checker all use it, so a new directory under `apps/` is live on the
+next deploy with no other wiring.
+
+Two conventions follow from the site living under `/addenso-website/` on GitHub Pages:
+
+- Reference shared assets relatively (`../assets/...` from a design's `index.html`,
+  `../../assets/...` from its CSS), never root-relative. `pnpm check` rejects `/assets`.
+- Directory URLs need the trailing slash (`/design-a/`). Pages redirects the bare form
+  and so does the dev server, so a page's relative paths resolve the same way in both.
 
 ## Commands
 
 ```sh
 pnpm install
-pnpm dev        # serve apps/landing at http://localhost:4173
-pnpm build      # copy apps/landing to dist/
-pnpm preview    # serve dist/
-pnpm check      # verify every local href/src/url() resolves on disk
-pnpm test       # Playwright, starts the dev server itself
-pnpm diff       # pixel-diff each section against the live addenso.com
-pnpm format     # prettier --write .
+pnpm dev          # serve apps/ at http://localhost:4173 (landing at /, others at /<name>/)
+pnpm build        # copy apps/landing to dist/ and every other app to dist/<name>/
+pnpm preview      # serve dist/
+pnpm check        # verify every local href/src/url() resolves on disk, case-sensitively
+pnpm test         # Playwright, starts the dev server itself
+pnpm screenshots  # full-page desktop + mobile PNGs of every app into screenshots/
+pnpm diff         # pixel-diff each section against the live addenso.com
+pnpm format       # prettier --write .
 ```
 
 `pnpm test` needs browsers once: `pnpm exec playwright install chromium`.
@@ -45,6 +71,16 @@ pnpm format     # prettier --write .
 
 Pushes to `main` publish `dist/` to GitHub Pages via `.github/workflows/pages.yml`.
 Nothing to do by hand; the Actions run takes about a minute.
+
+## Reviewing the design concepts
+
+With `pnpm dev` running, `pnpm screenshots` writes a desktop (1440px) and phone (390px)
+full-page capture of every app to `screenshots/` (gitignored). `BASE_URL=https://...`
+points it at a deployed copy instead. The concepts share all copy with the replica plus
+the handoff requirements: the fourth AI Implementations service, the 2026 Gartner/IDC
+figures, a leadership section (portraits and bios are placeholders until supplied), and
+a More Information form. The form is intercepted in each design's `main.js` and tells
+the visitor to email instead; wiring it to an Addenso inbox is a follow-up.
 
 ## Comparing against the live site
 

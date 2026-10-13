@@ -1,6 +1,6 @@
 # Deploy the static site to GitHub Pages on every push to main.
 #
-# `node scripts/build.mjs` only copies apps/landing into dist/ (no dependencies),
+# `node scripts/build.mjs` only copies apps/* into dist/ (no dependencies),
 # so there is no package install here. The dist/ tree is what gets published.
 
 name: Deploy to GitHub Pages

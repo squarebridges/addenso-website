@@ -181,5 +181,32 @@
       "file": "assets/fonts/open-sans-700.ttf",
       "bytes": 35292
     }
+  ],
+  "fonts": [
+    {
+      "file": "apps/design-a/assets/fonts/manrope-variable.woff2",
+      "source": "https://fonts.google.com/specimen/Manrope (latin subset via fonts.gstatic.com)",
+      "license": "OFL-1.1"
+    },
+    {
+      "file": "apps/design-b/assets/fonts/inter-variable.woff2",
+      "source": "https://fonts.google.com/specimen/Inter (latin subset via fonts.gstatic.com)",
+      "license": "OFL-1.1"
+    },
+    {
+      "file": "apps/design-b/assets/fonts/jetbrains-mono-variable.woff2",
+      "source": "https://fonts.google.com/specimen/JetBrains+Mono (latin subset via fonts.gstatic.com)",
+      "license": "OFL-1.1"
+    },
+    {
+      "file": "apps/design-c/assets/fonts/fraunces-variable.woff2",
+      "source": "https://fonts.google.com/specimen/Fraunces (latin subset via fonts.gstatic.com)",
+      "license": "OFL-1.1"
+    },
+    {
+      "file": "apps/design-c/assets/fonts/fraunces-italic-variable.woff2",
+      "source": "https://fonts.google.com/specimen/Fraunces (italic latin subset via fonts.gstatic.com)",
+      "license": "OFL-1.1"
+    }
   ]
 }

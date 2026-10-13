@@ -1,5 +1,5 @@
 pnpm-lock.yaml
-apps/landing/assets/
+apps/*/assets/
 dist/
 test-results/
 playwright-report/

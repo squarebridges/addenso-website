@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Addenso Labs – Design Concepts</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/logos/favicon-32x32.png"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #0f1722;
+        --muted: #5b6672;
+        --line: #e3e7ec;
+        --brand: #1174af;
+        --surface: #f6f8fa;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          "Open Sans",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        color: var(--ink);
+        background: var(--surface);
+        line-height: 1.55;
+      }
+      main {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 64px 24px 96px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 48px;
+      }
+      header img {
+        width: 180px;
+        height: auto;
+      }
+      header a {
+        color: var(--brand);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+      }
+      h1 {
+        font-size: clamp(28px, 4vw, 40px);
+        line-height: 1.15;
+        margin: 0 0 12px;
+        letter-spacing: -0.01em;
+      }
+      .lede {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 0 40px;
+        font-size: 17px;
+      }
+      .grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 24px;
+        text-decoration: none;
+        color: inherit;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .card:hover,
+      .card:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(15, 23, 34, 0.08);
+        outline: none;
+        border-color: #c9d3dd;
+      }
+      .swatch {
+        height: 96px;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+      .swatch.a {
+        background: linear-gradient(135deg, #fff 0 55%, #eef3f7 55%);
+        border: 1px solid var(--line);
+      }
+      .swatch.a::after {
+        content: "";
+        position: absolute;
+        left: 20px;
+        bottom: 18px;
+        width: 120px;
+        height: 6px;
+        background: var(--brand);
+        border-radius: 3px;
+      }
+      .swatch.b {
+        background:
+          radial-gradient(
+            120% 100% at 0% 100%,
+            rgba(17, 116, 175, 0.55),
+            transparent 55%
+          ),
+          radial-gradient(
+            80% 80% at 100% 0%,
+            rgba(46, 212, 191, 0.45),
+            transparent 55%
+          ),
+          #0b1220;
+      }
+      .swatch.c {
+        background: #faf7f2;
+        border: 1px solid #ece6db;
+      }
+      .swatch.c::after {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 18px;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: #1174af;
+        box-shadow: 72px 0 0 #d9842f;
+      }
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--brand);
+        font-weight: 700;
+      }
+      .card h2 {
+        margin: 0;
+        font-size: 20px;
+      }
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+      }
+      .card .go {
+        margin-top: auto;
+        color: var(--brand);
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .note {
+        margin-top: 40px;
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .note a {
+        color: var(--brand);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <img
+          src="../assets/images/logos/Addenso_LogosWebsite.png"
+          alt="Addenso Labs"
+          width="244"
+          height="57"
+        />
+        <a href="../">View current site &rarr;</a>
+      </header>
+      <h1>Three directions for the new addenso.com</h1>
+      <p class="lede">
+        Each concept is a complete page with the same updated copy, the four
+        services, the 2026 industry data, a leadership section, and a More
+        Information form. The difference is purely the design direction. Pick
+        the one that feels most like Addenso, or tell us what to combine.
+      </p>
+      <div class="grid">
+        <a class="card" href="../design-a/">
+          <div class="swatch a"></div>
+          <span class="eyebrow">Design A</span>
+          <h2>Editorial consulting</h2>
+          <p>
+            Light, confident, and typographic. Addenso blue as the single
+            accent. Modernized flip cards for services. The safe modern option.
+          </p>
+          <span class="go">Open design A &rarr;</span>
+        </a>
+        <a class="card" href="../design-b/">
+          <div class="swatch b"></div>
+          <span class="eyebrow">Design B</span>
+          <h2>Dark technical</h2>
+          <p>
+            Deep navy with blue and teal glows, a bento grid for services, and
+            animated metrics. Reads as an AI company. The biggest departure.
+          </p>
+          <span class="go">Open design B &rarr;</span>
+        </a>
+        <a class="card" href="../design-c/">
+          <div class="swatch c"></div>
+          <span class="eyebrow">Design C</span>
+          <h2>Evidence-first, human</h2>
+          <p>
+            Warm off-white, serif headlines, and the industry data framed as the
+            brand idea: evidence over vendor confidence. Leadership front and
+            center.
+          </p>
+          <span class="go">Open design C &rarr;</span>
+        </a>
+      </div>
+      <p class="note">
+        Leadership portraits and bios are placeholders pending headshots. The
+        More Information form is visual only until it is wired to an Addenso
+        inbox.
+      </p>
+    </main>
+  </body>
+</html>

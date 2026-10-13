@@ -12,7 +12,8 @@
     "test": "playwright test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "diff": "node scripts/visual-diff.mjs"
+    "diff": "node scripts/visual-diff.mjs",
+    "screenshots": "node scripts/screenshots.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.58.2",

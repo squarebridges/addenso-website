@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { brokenImages } from "./helpers.mjs";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
@@ -47,25 +48,7 @@ test("every contact route points at the right mailbox", async ({ page }) => {
 });
 
 test("every image and the hero video load", async ({ page }) => {
-  const broken = await page.evaluate(async () => {
-    const images = [...document.images];
-    images.forEach((image) => image.removeAttribute("loading"));
-    await Promise.all(
-      images.map((image) =>
-        image.complete
-          ? Promise.resolve()
-          : new Promise((resolve) => {
-              image.addEventListener("load", resolve, { once: true });
-              image.addEventListener("error", resolve, { once: true });
-            }),
-      ),
-    );
-    return images
-      .filter((image) => image.naturalWidth === 0)
-      .map((image) => image.src);
-  });
-
-  expect(broken).toEqual([]);
+  expect(await brokenImages(page)).toEqual([]);
 
   const video = page.locator(".hero-media video");
   await expect(video).toBeVisible();
